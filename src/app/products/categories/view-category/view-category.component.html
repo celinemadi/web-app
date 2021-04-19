@@ -1,0 +1,99 @@
+<div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
+    <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_CATEGORY'">
+    <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
+    Edit
+  </button>
+    <button mat-raised-button color="warn" (click)="deleteCategory()" *mifosxHasPermission="'DELETE_CATEGORY'">
+    <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
+    Delete
+  </button>
+</div>
+
+<div class="container">
+
+    <mat-card>
+
+        <mat-card-content>
+
+            <div fxLayout="row wrap" class="content">
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Category Name
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.name }}
+                </div>
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Short Name
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.short_name }}
+                </div>
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Display Name
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.display_name }}
+                </div>
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Currency Code
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.currencyCode }}
+                </div>
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Minimum Value
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.minimum }}
+                </div>
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Maximum Value
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.maximum}}
+                </div>
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Minimum Number of Payments
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.minNumberOfPayments }}
+                </div>
+                <div fxFlex="50%" class="mat-body-strong">
+                    Maximum Number of Payments
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.maxNumberOfPayments }}
+                </div>
+
+                <div fxFlex="50%" class="mat-body-strong">
+                    Duration
+                </div>
+
+                <div fxFlex="50%">
+                    {{ categoryData.duration }}
+                </div>
+
+
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

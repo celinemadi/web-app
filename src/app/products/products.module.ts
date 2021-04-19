@@ -26,6 +26,8 @@ import { CreateLoanProductComponent } from './loan-products/create-loan-product/
 import { ManageTaxConfigurationsComponent } from './manage-tax-configurations/manage-tax-configurations.component';
 import { RecurringDepositProductsComponent } from './recurring-deposit-products/recurring-deposit-products.component';
 import { ChargesComponent } from './charges/charges.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { ViewCategoryComponent } from './categories/view-category/view-category.component';
 import { ViewChargeComponent } from './charges/view-charge/view-charge.component';
 import { FixedDepositProductsComponent } from './fixed-deposit-products/fixed-deposit-products.component';
 import { ProductsMixComponent } from './products-mix/products-mix.component';
@@ -76,6 +78,7 @@ import { FloatingRatePeriodDialogComponent } from './floating-rates/floating-rat
 import { CreateTaxComponentComponent } from './manage-tax-components/create-tax-component/create-tax-component.component';
 import { EditTaxComponentComponent } from './manage-tax-components/edit-tax-component/edit-tax-component.component';
 import { EditChargeComponent } from './charges/edit-charge/edit-charge.component';
+import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
 import { ViewTaxGroupComponent } from './manage-tax-groups/view-tax-group/view-tax-group.component';
 import { ShareProductsDividendsComponent } from './share-products/dividends-share-product/dividends.components';
 import { ViewRecurringDepositProductComponent } from './recurring-deposit-products/view-recurring-deposit-product/view-recurring-deposit-product.component';
@@ -98,7 +101,7 @@ import { CreateProductMixComponent } from './products-mix/create-product-mix/cre
 import { EditProductMixComponent } from './products-mix/edit-product-mix/edit-product-mix.component';
 import { CreateChargeComponent } from './charges/create-charge/create-charge.component';
 import { EditFixedDepositProductComponent } from './fixed-deposit-products/edit-fixed-deposit-product/edit-fixed-deposit-product.component';
-
+import { CreateCategoryComponent } from './categories/create-category/create-category.component';
 /**
  * Products Module
  *
@@ -125,7 +128,9 @@ import { EditFixedDepositProductComponent } from './fixed-deposit-products/edit-
     ManageTaxConfigurationsComponent,
     RecurringDepositProductsComponent,
     ChargesComponent,
+    CategoriesComponent,
     ViewChargeComponent,
+    ViewCategoryComponent,
     FixedDepositProductsComponent,
     ManageTaxComponentsComponent,
     ProductsMixComponent,
@@ -175,6 +180,7 @@ import { EditFixedDepositProductComponent } from './fixed-deposit-products/edit-
     CreateTaxComponentComponent,
     EditTaxComponentComponent,
     EditChargeComponent,
+    EditCategoryComponent,
     ViewTaxGroupComponent,
     ShareProductsDividendsComponent,
     DepositProductIncentiveFormDialogComponent,
@@ -198,6 +204,7 @@ import { EditFixedDepositProductComponent } from './fixed-deposit-products/edit-
     EditProductMixComponent,
     ManageTaxGroupsComponent,
     CreateChargeComponent,
+    CreateCategoryComponent,
     EditFixedDepositProductComponent
   ],
   providers: [DatePipe]

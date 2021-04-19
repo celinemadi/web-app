@@ -28,6 +28,10 @@ import { ViewRecurringDepositProductComponent } from './recurring-deposit-produc
 import { ChargesComponent } from './charges/charges.component';
 import { ViewChargeComponent } from './charges/view-charge/view-charge.component';
 import { CreateChargeComponent } from './charges/create-charge/create-charge.component';
+import { CategoriesComponent } from './categories/categories.component';
+
+import { ViewCategoryComponent } from './categories/view-category/view-category.component';
+import { CreateCategoryComponent } from './categories/create-category/create-category.component';
 import { FixedDepositProductsComponent } from './fixed-deposit-products/fixed-deposit-products.component';
 import { CreateFixedDepositProductComponent } from './fixed-deposit-products/create-fixed-deposit-product/create-fixed-deposit-product.component';
 import { ProductsMixComponent } from './products-mix/products-mix.component';
@@ -69,6 +73,8 @@ import { RecurringDepositProductResolver } from './recurring-deposit-products/re
 import { ChargesResolver } from './charges/charges.resolver';
 import { ChargeResolver } from './charges/charge.resolver';
 import { ChargesTemplateResolver } from './charges/charges-template.resolver';
+import { CategoriesResolver } from './categories/categories.resolver';
+import { CategoryResolver } from './categories/category.resolver'; 
 import { FixedDepositProductsResolver } from './fixed-deposit-products/fixed-deposit-products.resolver';
 import { FixedDepositProductsTemplateResolver } from './fixed-deposit-products/fixed-deposit-products-template.resolver';
 import { ProductsMixResolver } from './products-mix/products-mix.resolver';
@@ -80,6 +86,8 @@ import { ManageTaxGroupsResolver } from './manage-tax-groups/manage-tax-groups.r
 import { TaxComponentResolver } from './manage-tax-components/tax-component.resolver';
 import { TaxComponentTemplateResolver } from './manage-tax-components/tax-component-template.resolver';
 import { EditChargeComponent } from './charges/edit-charge/edit-charge.component';
+import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
+
 import { TaxGroupResolver } from './manage-tax-groups/tax-group.resolver';
 import { DividendsResolver } from './share-products/dividends-share-product/dividends.resolver';
 import { RecurringDepositProductsTemplateResolver } from './recurring-deposit-products/recurring-deposit-products-template.resolver';
@@ -92,6 +100,7 @@ import { EditTaxGroupResolver } from './manage-tax-groups/edit-tax-group/edit-ta
 import { ProductsMixTemplateResolver } from './products-mix/products-mix-template.resolver';
 import { EditProductMixComponent } from './products-mix/edit-product-mix/edit-product-mix.component';
 import { ChargesTemplateAndResolver } from './charges/charges-template-and-resolver';
+import { CategoriesTemplateAndResolver } from './categories/categories-template-and-resolver';
 import { EditFixedDepositProductComponent } from './fixed-deposit-products/edit-fixed-deposit-product/edit-fixed-deposit-product.component';
 import { FixedDepositProductAndTemplateResolver } from './fixed-deposit-products/edit-fixed-deposit-product/fixed-deposit-product-and-template.resolver';
 
@@ -563,7 +572,48 @@ const routes: Routes = [
               ]
             },
           ]
+        },
+        {
+          path: 'categories',
+          data: { title: extract('Categories'), breadcrumb: 'Categories' },
+          children: [
+            {
+              path: 'create',
+              component: CreateCategoryComponent,
+              data: { title: extract('Create Category'), breadcrumb: 'Create Category' },
+              
+            },
+            {
+              path: '',
+              component: CategoriesComponent,
+              resolve: {
+                categories: CategoriesResolver
+              }
+            },
+            {
+              path: ':id',
+              data: { title: extract('View Categories'), routeParamBreadcrumb: 'id' },
+              children: [
+                {
+                  path: '',
+                  component: ViewCategoryComponent,
+                  resolve: {
+                    category: CategoryResolver
+                  }
+                },
+                {
+                  path: 'edit',
+                  component: EditCategoryComponent,
+                  data: { title: extract('Edit Category'), breadcrumb: 'Edit', routeParamBreadcrumb: false },
+                  resolve: {
+                    categoriesTemplate: CategoriesTemplateAndResolver
+                  }
+                },
+              ]
+            },
+          ]
         }
+      
       ]
     }
   ])
@@ -593,9 +643,12 @@ const routes: Routes = [
     RecurringDepositProductsResolver,
     RecurringDepositProductResolver,
     ChargesResolver,
+    CategoriesResolver,
     ChargeResolver,
+    CategoryResolver,
     ChargesTemplateAndResolver,
     ChargesTemplateResolver,
+    CategoriesTemplateAndResolver, 
     FixedDepositProductsResolver,
     FixedDepositProductsTemplateResolver,
     ProductsMixResolver,

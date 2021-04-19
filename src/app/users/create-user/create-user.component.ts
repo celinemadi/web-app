@@ -80,6 +80,7 @@ export class CreateUserComponent implements OnInit {
     this.userForm.get('officeId').valueChanges.subscribe((officeId: string) => {
       this.staffData = [];
       this.usersService.getStaff(officeId).subscribe((staff: any) => {
+        console.log(staff)
         this.staffData = staff;
       });
     });

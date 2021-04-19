@@ -11,6 +11,8 @@ export class ViewLoanProductComponent implements OnInit {
   loanProduct: any;
 
   variationsDisplayedColumns: string[] = ['valueConditionType', 'borrowerCycleNumber', 'minValue', 'defaultValue', 'maxValue'];
+  variationsDisplayedColumnsLP: string[] = ['loyaltyProfile','defaultValue'];
+
   chargesDisplayedColumns: string[] = ['name', 'chargeCalculationType', 'amount', 'chargeTimeType'];
   paymentFundSourceDisplayedColumns: string[] = ['paymentTypeId', 'fundSourceAccountId'];
   feesPenaltyIncomeDisplayedColumns: string[] = ['chargeId', 'incomeAccountId'];

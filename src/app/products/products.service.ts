@@ -183,6 +183,48 @@ export class ProductsService {
     return this.http.post('/charges', charge);
   }
 
+
+  /**
+   * @returns {Observable<any>} Categories data.
+   */
+  getCategories(): Observable<any> {
+    return this.http.get('/categories');
+  }
+
+ 
+
+  /**
+   * @param {string} categoryId Category ID of category.
+   * @returns {Observable<any>} Category.
+   */
+  getCategory(categoryId: string, template: boolean = false): Observable<any> { 
+    return this.http.get(`/categories/${categoryId}` );
+  }
+
+  /**
+   * @param categoryId Category Id to be updated.
+   * @param categories  Category Data to be updated.
+   */
+  updateCategory(categoryId: string, categories: any): Observable<any> {
+    return this.http.put(`/categories/${categoryId}`, categories);
+  }
+
+  /**
+   * @param {string} categoryId  Category ID of Category to be deleted.
+   * @returns {Observable<any>}
+   */
+  deleteCategory(categoryId: string): Observable<any> {
+    return this.http.delete(`/categories/${categoryId}`);
+  }
+
+  /**
+   * @param {any} category Category to be created.
+   * @returns {Observable<any>}
+   */
+  createCategory(category: any): Observable<any> {
+    return this.http.post('/categories', category);
+  }
+  
   /**
    * @returns {Observable<any>} Fixed deposit products data
    */

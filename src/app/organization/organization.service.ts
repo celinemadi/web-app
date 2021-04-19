@@ -676,6 +676,32 @@ export class OrganizationService {
     return this.http.put(`/funds/${fundId}`, fundData);
   }
 
+
+  /**
+   * @returns {Observable<any>} Categories data
+   */
+  getCategories(): Observable<any> {
+    return this.http.get('/categories');
+  }
+
+  /**
+   * @param {any} category Category to be created.
+   * @returns {Observable<any>}
+   */
+  createCategory(category: any): Observable<any> {
+    return this.http.post('/categories', category);
+  }
+
+  /**
+   * @param {string} categoryId Category Id
+   * @param {any} categoryData Category Data
+   * @returns {Observable<any>}
+   */
+  editCategory(categoryId: string, categoryData: any): Observable<any> {
+    return this.http.put(`/categories/${categoryId}`, categoryData);
+  }
+
+
   /*
    * @param {any} officeId ID of office to retrieve staff from.
    * @returns {Observable<any>} Staff data.

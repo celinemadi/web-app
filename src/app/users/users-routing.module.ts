@@ -74,7 +74,7 @@ const routes: Routes = [
  * Configures the users routes.
  */
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
   providers: [
     UsersResolver,

@@ -1,0 +1,132 @@
+<div class="container">
+
+    <mat-card>
+
+        <form [formGroup]="categoryForm" (ngSubmit)="submit()">
+
+            <mat-card-content>
+
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Category Name</mat-label>
+                        <input matInput required formControlName="name">
+                        <mat-error *ngIf="categoryForm.controls.name.hasError('required')">
+                            Category Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Short Name</mat-label>
+                        <input matInput required formControlName="short_name">
+                        <mat-error *ngIf="categoryForm.controls.short_name.hasError('required')">
+                            Short Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Display Name</mat-label>
+                        <input matInput required formControlName="display_name">
+                        <mat-error *ngIf="categoryForm.controls.display_name.hasError('required')">
+                            Display name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Currency Code</mat-label>
+                        <input matInput required formControlName="currencyCode">
+                        <mat-error *ngIf="categoryForm.controls.currencyCode.hasError('required')">
+                            currency code is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Minimum</mat-label>
+                        <input matInput required formControlName="minimum">
+                        <mat-error *ngIf="categoryForm.controls.minimum.hasError('required')">
+                            Minimum is <strong>required</strong>
+                        </mat-error>
+
+                        <mat-error *ngIf="categoryForm.controls.minimum.hasError('pattern') ">
+                            Minimum must be <strong>a positive number</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+
+
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Maximum</mat-label>
+                        <input matInput required formControlName="maximum">
+                        <mat-error *ngIf="categoryForm.controls.maximum.hasError('required')">
+                            Maximum is <strong>required</strong>
+                        </mat-error>
+
+                        <mat-error *ngIf="categoryForm.controls.maximum.hasError('pattern')">
+                            Maximum must be <strong>a positive number</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Minimum Number of Payments</mat-label>
+                        <input matInput required formControlName="minNumberOfPayments">
+                        <mat-error *ngIf="categoryForm.controls.minNumberOfPayments.hasError('required')">
+                            Minimum Number of Payments is <strong>required</strong>
+                        </mat-error>
+
+                        <mat-error *ngIf="categoryForm.controls.numberOfPayments.hasError('pattern')">
+                            Minimum Number of Payments must be <strong>a positive number</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Maximum Number of Payments</mat-label>
+                        <input matInput required formControlName="maxNumberOfPayments">
+                        <mat-error *ngIf="categoryForm.controls.maxNumberOfPayments.hasError('required')">
+                            Maximum Number of Payments is <strong>required</strong>
+                        </mat-error>
+
+                        <mat-error *ngIf="categoryForm.controls.numberOfPayments.hasError('pattern')">
+                            Maximum Number of Payments must be <strong>a positive number</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" style="margin-top:10px;">
+                    <mat-form-field fxFlex="48%">
+                        <mat-label>Duartion</mat-label>
+                        <input matInput required formControlName="duration">
+                        <mat-error *ngIf="categoryForm.controls.duration.hasError('required')">
+                            Duration is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
+                <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
+                <button mat-raised-button color="primary" [disabled]="!categoryForm.valid" *mifosxHasPermission="'UPDATE_CATEGORY'">Submit</button>
+            </mat-card-actions>
+
+        </form>
+
+    </mat-card>
+
+</div>

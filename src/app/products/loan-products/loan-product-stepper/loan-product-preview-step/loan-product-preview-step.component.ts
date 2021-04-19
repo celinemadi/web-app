@@ -13,6 +13,7 @@ export class LoanProductPreviewStepComponent implements OnInit {
   @Output() submit = new EventEmitter();
 
   variationsDisplayedColumns: string[] = ['valueConditionType', 'borrowerCycleNumber', 'minValue', 'defaultValue', 'maxValue'];
+  variationsDisplayedColumnsLP: string[] = ['loyaltyProfile','defaultValue'];
   chargesDisplayedColumns: string[] = ['name', 'chargeCalculationType', 'amount', 'chargeTimeType'];
   paymentFundSourceDisplayedColumns: string[] = ['paymentTypeId', 'fundSourceAccountId'];
   feesPenaltyIncomeDisplayedColumns: string[] = ['chargeId', 'incomeAccountId'];

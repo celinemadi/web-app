@@ -13,8 +13,9 @@ export class LoanProductDetailsStepComponent implements OnInit {
 
   loanProductDetailsForm: FormGroup;
 
-  fundData: any;
-
+ // fundData: any;
+  categoryData: any;
+  category:any;
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(new Date().setFullYear(new Date().getFullYear() + 10));
 
@@ -24,15 +25,17 @@ export class LoanProductDetailsStepComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fundData = this.loanProductsTemplate.fundOptions;
-
+    //this.fundData = this.loanProductsTemplate.fundOptions;
+    this.categoryData = this.loanProductsTemplate.categoryOptions;
+    
     this.loanProductDetailsForm.patchValue({
       'name': this.loanProductsTemplate.name,
       'shortName': this.loanProductsTemplate.shortName,
       'description': this.loanProductsTemplate.description,
-      'fundId': this.loanProductsTemplate.fundId,
+      // 'fundId': this.loanProductsTemplate.fundId, 
+      'categoryId':this.loanProductsTemplate.categoryOptions[0].id,
       'startDate': this.loanProductsTemplate.startDate && new Date(this.loanProductsTemplate.startDate),
-      'closeDate': this.loanProductsTemplate.closeDate && new Date(this.loanProductsTemplate.closeDate),
+      // 'closeDate': this.loanProductsTemplate.closeDate && new Date(this.loanProductsTemplate.closeDate),
       'includeInBorrowerCycle': this.loanProductsTemplate.includeInBorrowerCycle
     });
   }
@@ -42,23 +45,26 @@ export class LoanProductDetailsStepComponent implements OnInit {
       'name': ['', Validators.required],
       'shortName': ['', Validators.required],
       'description': [''],
-      'fundId': [''],
+      // 'fundId': [''],
+      'categoryId': ['1'],
       'startDate': [''],
-      'closeDate': [''],
+      // 'closeDate': [''],
       'includeInBorrowerCycle': [false]
     });
   }
 
   get loanProductDetails() {
     const prevStartDate: Date = this.loanProductDetailsForm.value.startDate;
-    const prevCloseDate: Date = this.loanProductDetailsForm.value.closeDate;
+    //const prevCloseDate: Date = this.loanProductDetailsForm.value.closeDate;
     // TODO: Update once language and date settings are setup
     const dateFormat = 'yyyy-MM-dd';
     this.loanProductDetailsForm.patchValue({
       startDate: this.datePipe.transform(prevStartDate, dateFormat) || '',
-      closeDate: this.datePipe.transform(prevCloseDate, dateFormat) || ''
+      //closeDate: this.datePipe.transform(prevCloseDate, dateFormat) || ''
     });
+    // this.loanProductDetailsForm.setControl('categoryId', this.loanProductDetailsForm.get('category').value.id);
+    
     return this.loanProductDetailsForm.value;
   }
-
+   
 }

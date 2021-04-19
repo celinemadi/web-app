@@ -13,7 +13,7 @@ export class LoanProductChargesStepComponent implements OnInit {
 
   @Input() loanProductsTemplate: any;
   @Input() currencyCode: FormControl;
-  @Input() multiDisburseLoan: FormControl;
+  //@Input() multiDisburseLoan: FormControl;
 
   chargeData: any;
   overdueChargeData: any;
@@ -27,14 +27,20 @@ export class LoanProductChargesStepComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.chargeData = this.loanProductsTemplate.chargeOptions;
-    this.overdueChargeData = this.loanProductsTemplate.penaltyOptions.filter((penalty: any) => penalty.chargeTimeType.code === 'chargeTimeType.overdueInstallment');
-
-    this.chargesDataSource = this.loanProductsTemplate.charges || [];
+     
+    this.chargeData = this.loanProductsTemplate.chargeOptions? this.loanProductsTemplate.chargeOptions : [];
+    if(this.loanProductsTemplate.penaltyOptions)
+    {
+      this.overdueChargeData = this.loanProductsTemplate.penaltyOptions.filter((penalty: any) => penalty.chargeTimeType.code === 'chargeTimeType.overdueInstallment');
+    }
+ 
+    
+    //this.chargesDataSource = this.loanProductsTemplate.charges || [];
+    this.chargesDataSource = this.loanProductsTemplate.chargeOptions? this.loanProductsTemplate.chargeOptions : [];
     this.pristine = true;
 
     this.currencyCode.valueChanges.subscribe(() => this.chargesDataSource = []);
-    this.multiDisburseLoan.valueChanges.subscribe(() => this.chargesDataSource = []);
+    //this.multiDisburseLoan.valueChanges.subscribe(() => this.chargesDataSource = []);
   }
 
   addCharge(charge: any) {
